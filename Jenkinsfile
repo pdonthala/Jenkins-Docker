@@ -15,6 +15,7 @@ pipeline {
                     echo 'Installing Maven, Azure CLI, and dependencies...'
                     sh '''
                     sudo apt-get update
+                    sudo apt install git
                     sudo apt-get install docker.io -y
                     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
                     '''
