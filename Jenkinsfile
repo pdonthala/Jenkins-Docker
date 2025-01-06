@@ -9,6 +9,11 @@ pipeline {
         AZURE_CREDENTIALS = credentials('azure_service_principal') // Add Azure SP creds in Jenkins
     }
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }        
         stage('Build') {
             steps {
                 echo 'Building application...'
