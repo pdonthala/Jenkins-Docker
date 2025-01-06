@@ -1,27 +1,13 @@
 pipeline {
     agent {
         docker {
-            image 'maven:3.8.3-openjdk-17'
             label 'docker'
         }
     }
     environment {
         AZURE_CREDENTIALS = credentials('azure_service_principal') // Add Azure SP creds in Jenkins
     }
-    stages {
-        stage('Setup Environment') {
-            steps {
-                script {
-                    echo 'Installing Maven, Azure CLI, and dependencies...'
-                    sh '''
-                    sudo apt-get update
-                    sudo apt install git
-                    sudo apt-get install docker.io -y
-                    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-                    '''
-                }
-            }
-        }       
+    stages {      
         stage('Checkout') {
             steps {
                 checkout scm
