@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'ubuntu'
+            image 'maven:3.8.3-openjdk-17'
             label 'docker'
         }
     }
@@ -15,7 +15,6 @@ pipeline {
                     echo 'Installing Maven, Azure CLI, and dependencies...'
                     sh '''
                     sudo apt-get update
-                    sudo apt-get install -y openjdk-17-jdk maven apt-transport-https ca-certificates curl software-properties-common
                     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
                     '''
                 }
@@ -36,8 +35,6 @@ pipeline {
             steps {
                 script {
                     sh """
-                    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-                    apt-get update && apt-get install -y azure-cli
                     az login --service-principal -u ${AZURE_CREDENTIALS_USR} \
                     -p ${AZURE_CREDENTIALS_PSW} --tenant "56359ef4-08c1-491c-b0fd-135bce685d00"
                     az staticwebapp upload --name "jenkinsdock234-ahgtcwaubdaehygp.canadacentral-01.azurewebsites.net" \
