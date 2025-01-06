@@ -9,7 +9,7 @@ pipeline {
         AZURE_CREDENTIALS = credentials('azure_service_principal') // Add Azure SP creds in Jenkins
     }
     stages {
-         stage('Setup Environment') {
+        stage('Setup Environment') {
             steps {
                 script {
                     echo 'Installing Maven, Azure CLI, and dependencies...'
