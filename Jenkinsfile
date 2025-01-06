@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'alpine'
+            image 'ubuntu'
             label 'docker'
         }
     }
