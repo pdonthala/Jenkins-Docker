@@ -1,8 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'maven:3.8.5-openjdk-11'  // Docker image for Maven and OpenJDK 11
-            args '-v /tmp:/tmp'  // Optional: Mount volume if necessary
+            image 'maven:3.8.3-openjdk-17'  
         }
     }
     environment {
