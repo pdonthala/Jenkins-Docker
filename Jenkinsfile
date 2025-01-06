@@ -24,6 +24,8 @@ pipeline {
             steps {
                 script {
                     sh """
+                    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+                    apt-get update && apt-get install -y azure-cli
                     az login --service-principal -u ${AZURE_CREDENTIALS_USR} \
                     -p ${AZURE_CREDENTIALS_PSW} --tenant "56359ef4-08c1-491c-b0fd-135bce685d00"
                     az staticwebapp upload --name "jenkinsdock234-ahgtcwaubdaehygp.canadacentral-01.azurewebsites.net" \
