@@ -20,9 +20,9 @@ pipeline {
                 script {
                     sh """
                     az login --service-principal -u ${AZURE_CREDENTIALS_USR} \
-                    -p ${AZURE_CREDENTIALS_PSW} --tenant <tenant-id>
-                    az staticwebapp upload --name <app-name> \
-                    --resource-group <resource-group> --source ./target
+                    -p ${AZURE_CREDENTIALS_PSW} --tenant "56359ef4-08c1-491c-b0fd-135bce685d00"
+                    az staticwebapp upload --name "jenkinsdock234-ahgtcwaubdaehygp.canadacentral-01.azurewebsites.net" \
+                    --resource-group "LinuxVM" --source ./target
                     """
                 }
             }
