@@ -10,17 +10,17 @@ pipeline {
     }
     stages {
         stage('Setup Environment') {
-            steps {
-                script {
-                    echo 'Installing Maven, Azure CLI, and dependencies...'
-                    sh '''
-                    sudo apt-get update
-                    sudo apt-get install -y openjdk-17-jdk maven apt-transport-https ca-certificates curl software-properties-common
-                    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-                    '''
-                }
-            }
-        }       
+            steps {
+                script {
+                    echo 'Installing Maven, Azure CLI, and dependencies...'
+                    sh '''
+                    sudo apt-get update
+                    sudo apt-get install -y openjdk-17-jdk maven apt-transport-https ca-certificates curl software-properties-common
+                    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+                    '''
+                }
+            }
+        }       
         stage('Checkout') {
             steps {
                 checkout scm
